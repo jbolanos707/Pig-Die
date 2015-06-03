@@ -65,30 +65,36 @@ $(function() {
 
     //remove click listener from roll button
     $("#roll").off();
-
+    $("#rolling-die").hide();
     var newDie = new Die();
     $("#roll").click(function(){
-      var newRoll = newDie.roll();
-      if (newRoll != 1) {
-        newGame.addToTurnScore(newRoll);
-        $("#roll-value").show();
-        $("#score-value").show();
 
-        $("#roll-value").text(newRoll);
-        $("#score-value").text(newGame.turnScore);
-      } else {
-        $("#roll").hide();
-        $("#hold").hide();
-        $("#roll-value").text(newRoll);
-        $("#game #rolled-1").show();
-        $("#game #rolled-1").click(function(){
-          updateGame(newGame);
-          $("#game #rolled-1").hide();
-          $("#roll").show();
-          $("#hold").show();
-        });
+      $("#static-die").hide();
+      $("#rolling-die").show();
+      setTimeout(function(){
+        $("#rolling-die").hide();
+        $("#static-die").show();
+        var newRoll = newDie.roll();
+        if (newRoll != 1) {
+          newGame.addToTurnScore(newRoll);
+          $("#roll-value").show();
+          $("#score-value").show();
 
-      }
+          $("#roll-value").text(newRoll);
+          $("#score-value").text(newGame.turnScore);
+        } else {
+          $("#roll").hide();
+          $("#hold").hide();
+          $("#roll-value").text(newRoll);
+          $("#game #rolled-1").show();
+          $("#game #rolled-1").click(function(){
+            updateGame(newGame);
+            $("#game #rolled-1").hide();
+            $("#roll").show();
+            $("#hold").show();
+          });
+        }
+      }, 2000);
     });
 
     $("#hold").click(function() {
