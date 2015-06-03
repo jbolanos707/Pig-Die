@@ -36,8 +36,7 @@ Game.prototype.currentPlayer = function() {
 var updateGame = function(game) {
   game.switchTurn();
   $("#turn").text("Player turn: " + game.currentPlayer().name);
-  $("#roll-value").hide();
-  $("#score-value").hide();
+  $(".turn-status").hide();
 }
 
 
@@ -56,9 +55,8 @@ $(function() {
     $("#game #player2-info #player2-name").text(newGame.players[1].name);
     $("#score0").text(newGame.players[0].score);
     $("#score1").text(newGame.players[1].score);
-    $("#roll-value").hide();
-    $("#score-value").hide();
     $("#game #rolled-1").hide();
+    $(".turn-status").hide();
     $("#game-over").hide();
     $("#turn").text("Player turn: " + newGame.currentPlayer().name);
     $("#game").show();
@@ -77,8 +75,7 @@ $(function() {
         var newRoll = newDie.roll();
         if (newRoll != 1) {
           newGame.addToTurnScore(newRoll);
-          $("#roll-value").show();
-          $("#score-value").show();
+          $(".turn-status").show();
 
           $("#roll-value").text(newRoll);
           $("#score-value").text(newGame.turnScore);
