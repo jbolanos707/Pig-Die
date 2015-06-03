@@ -97,7 +97,7 @@ $(function() {
     $("#hold").click(function() {
       newGame.currentPlayer().addToScore(newGame.turnScore);
       $("#score" + newGame.currentPlayerIndex).text(newGame.currentPlayer().score);
-      if (newGame.currentPlayer().score >= 10) {
+      if (newGame.currentPlayer().score >= 100) {
         $("#game-over").text(newGame.currentPlayer().name + " is the winner.");
         $("#new-game").show();
         $("#new-game").click(function(){
@@ -111,9 +111,5 @@ $(function() {
     })
 
   });
-
-
-
-
 
 });
