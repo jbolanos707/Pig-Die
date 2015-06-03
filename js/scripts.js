@@ -29,11 +29,21 @@ Game.prototype.addToTurnScore = function(newRoll) {
   this.turnScore += newRoll;
 }
 
+Game.prototype.currentPlayer = function() {
+  return this.players[this.currentPlayerIndex];
+}
+
+var updateGame = function(game) {
+  game.switchTurn();
+  $("#turn").text("Player turn: " + game.currentPlayer().name);
+  $("#roll-value").hide();
+  $("#score-value").hide();
+}
+
 
 $(function() {
 
   var newGame;
-  var hold = true;
 
   $("form#new-players").submit(function(event) {
     event.preventDefault();
@@ -44,9 +54,17 @@ $(function() {
     $("#pregame").hide();
     $("#game #player1-info #player1-name").text(newGame.players[0].name);
     $("#game #player2-info #player2-name").text(newGame.players[1].name);
-
-    $("#turn").text("Player turn: " + newGame.players[newGame.currentPlayerIndex].name);
+    $("#score0").text(newGame.players[0].score);
+    $("#score1").text(newGame.players[1].score);
+    $("#roll-value").hide();
+    $("#score-value").hide();
+    $("#game #rolled-1").hide();
+    $("#game-over").hide();
+    $("#turn").text("Player turn: " + newGame.currentPlayer().name);
     $("#game").show();
+
+    //remove click listener from roll button
+    $("#roll").off();
 
     var newDie = new Die();
     $("#roll").click(function(){
@@ -59,31 +77,33 @@ $(function() {
         $("#roll-value").text(newRoll);
         $("#score-value").text(newGame.turnScore);
       } else {
-        newGame.switchTurn();
-        $("#turn").text("Player turn: " + newGame.players[newGame.currentPlayerIndex].name);
-        $("#roll-value").hide();
-        $("#score-value").hide();
+        $("#roll").hide();
+        $("#hold").hide();
+        $("#roll-value").text(newRoll);
+        $("#game #rolled-1").show();
+        $("#game #rolled-1").click(function(){
+          updateGame(newGame);
+          $("#game #rolled-1").hide();
+          $("#roll").show();
+          $("#hold").show();
+        });
 
-        $("#game #rolled-1").html("You rolled a 1. Your turn is over.");
       }
     });
 
     $("#hold").click(function() {
-      newGame.players[newGame.currentPlayerIndex].addToScore(newGame.turnScore);
-      $("#score" + newGame.currentPlayerIndex).text(newGame.players[newGame.currentPlayerIndex].score);
-      if (newGame.players[newGame.currentPlayerIndex].score >= 10) {
-        $("#game-over").text(newGame.players[newGame.currentPlayerIndex].name + " is the winner.");
+      newGame.currentPlayer().addToScore(newGame.turnScore);
+      $("#score" + newGame.currentPlayerIndex).text(newGame.currentPlayer().score);
+      if (newGame.currentPlayer().score >= 10) {
+        $("#game-over").text(newGame.currentPlayer().name + " is the winner.");
         $("#new-game").show();
         $("#new-game").click(function(){
           $("#game").hide();
-
+          $("#new-game").hide();
           $("#pregame").show();
         })
       } else {
-        newGame.switchTurn();
-        $("#roll-value").hide();
-        $("#score-value").hide();
-        $("#turn").text("Player turn: " + newGame.players[newGame.currentPlayerIndex].name);
+        updateGame(newGame);
       }
     })
 
