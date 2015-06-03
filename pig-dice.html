@@ -12,59 +12,55 @@
   </head>
   <body>
     <div class="container">
-      <h1>Pig Dice!</h1>
+      <h1 class="text-center page-header">Pig Dice!</h1>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div id="pregame">
-            <h2>Player Names</h2>
-            <form id="new-players">
-              <div class="form-group">
-                <label for="player1">Player 1</label>
-                <input type="text" class="form-control" id="player1">
-              </div>
-              <div class="form-group">
-                <label for="player2">Player 2</label>
-                <input type="text" class="form-control" id="player2">
-              </div>
+      <div id="pregame" class="row">
+        <div class="text-center col-md-6 col-md-offset-3">
+          <h2>Player Names</h2>
+          <form id="new-players">
+            <div class="form-group text-center">
+              <label for="player1">Player 1</label>
+              <input type="text" class="form-control" id="player1">
+            </div>
+            <div class="form-group text-center">
+              <label for="player2">Player 2</label>
+              <input type="text" class="form-control" id="player2">
+            </div>
 
-              <button type="submit" class="btn">Play game!</button>
-            </form>
+            <button type="submit" class="btn">Play game!</button>
+          </form>
+        </div>
+      </div>
+
+
+      <div id="game">
+        <div class="row">
+          <div id="player1-info" class="text-center col-md-4">
+            <div>Name: <span id="player1-name"></span></div>
+            <div>Score: <span id='score0'>0</span></div>
           </div>
 
-          <div id="game">
-            <div class="row">
-              <div id="player1-info" class="col-md-6">
-              </div>
-              <!-- <div id="player1-info-b" class="col-md-6">
-              </div>
-              <div id="player1-info-c" class="col-md-6">
-              </div> -->
+          <div id="options" class="text-center col-md-4">
+            <div id="turn"></div>
+            <div id="roll" class="btn btn-info">Roll die</div>
+            <br>
+            <div id="hold" class="btn btn-warning">Hold</div>
+            <br>
+            <div>The new roll is: <span id="roll-value"></span></div>
+            <div>Current score for this turn: <span id="score-value"></span></div>
+            <br>
+            <div id="rolled-1"></div>
+            <div id="game-over"></div>
+            <div id="new-game" class="btn btn-success">New game</div>
+          </div>
 
-              <div id="player2-info" class="col-md-6">
-
-              </div>
-            </div>
-            <div id="roll">
-              ROLL
-            </div>
-
-            <div id="hold">
-              HOLD
-            </div>
-
-            <div id="newgame">
-              NEWGAME
-            </div>
-
->          </div>
-
-
-
+          <div id="player2-info" class="text-center col-md-4">
+            <div>Name: <span id="player2-name"></span></div>
+            <div>Score: <span id='score1'>0</span></div>
+          </div>
         </div>
       </div>
     </div>
-
   </body>
 
 </html>

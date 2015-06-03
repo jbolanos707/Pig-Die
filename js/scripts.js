@@ -42,11 +42,10 @@ $(function() {
         inputPlayer2 = $("input#player2").val();
     newGame = new Game(inputPlayer1, inputPlayer2);
     $("#pregame").hide();
-    $("#game #player1-info").append(newGame.players[0].name + "<br>" +
-                                    "Score: <span id='score0'>0</span>");
-    $("#game #player2-info").append(newGame.players[1].name + "<br>" +
-                                    "Score: <span id='score1'>0</span>");
+    $("#game #player1-info #player1-name").text(newGame.players[0].name);
+    $("#game #player2-info #player2-name").text(newGame.players[1].name);
 
+    $("#turn").text("Player turn: " + newGame.players[newGame.currentPlayerIndex].name);
     $("#game").show();
 
     var newDie = new Die();
@@ -54,11 +53,18 @@ $(function() {
       var newRoll = newDie.roll();
       if (newRoll != 1) {
         newGame.addToTurnScore(newRoll);
-        $("#game #player1-info").append("Your new roll is: " + newRoll + "<br>");
-        $("#game #player1-info").append("Your score this turn is: " + newGame.turnScore + "<br>");
+        $("#roll-value").show();
+        $("#score-value").show();
+
+        $("#roll-value").text(newRoll);
+        $("#score-value").text(newGame.turnScore);
       } else {
         newGame.switchTurn();
-        $("#game #player1-info").append("You rolled a 1, other player turn." + "<br>");
+        $("#turn").text("Player turn: " + newGame.players[newGame.currentPlayerIndex].name);
+        $("#roll-value").hide();
+        $("#score-value").hide();
+
+        $("#game #rolled-1").html("You rolled a 1. Your turn is over.");
       }
     });
 
@@ -66,15 +72,18 @@ $(function() {
       newGame.players[newGame.currentPlayerIndex].addToScore(newGame.turnScore);
       $("#score" + newGame.currentPlayerIndex).text(newGame.players[newGame.currentPlayerIndex].score);
       if (newGame.players[newGame.currentPlayerIndex].score >= 10) {
-        $("game #player1-info").append("You have rocked the game.");
-        $("#newgame").show();
-        $("#newgame").click(function(){
+        $("#game-over").text(newGame.players[newGame.currentPlayerIndex].name + " is the winner.");
+        $("#new-game").show();
+        $("#new-game").click(function(){
           $("#game").hide();
 
           $("#pregame").show();
         })
       } else {
         newGame.switchTurn();
+        $("#roll-value").hide();
+        $("#score-value").hide();
+        $("#turn").text("Player turn: " + newGame.players[newGame.currentPlayerIndex].name);
       }
     })
 
