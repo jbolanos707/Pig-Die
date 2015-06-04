@@ -17,7 +17,7 @@
   <body>
     <div class="container">
       <div class="content">
-        <svg viewBox="0 0 900 300">
+        <svg viewBox="0 0 900 200">
 
           <!-- Pattern -->
           <pattern
@@ -44,62 +44,62 @@
         </svg>
 
       </div>
+      <div id="pregame" class="row">
 
       <div class="row">
         <div class="col-xs-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+          <div class="thumbnail-pig">
+            <img class="pig-pics" src="images/Evil-Ham.png" alt="Evil Hog">
             <div class="caption">
               <span id="choose-player"><h3>Evil Ham</h3></span>
             </div>
           </div>
         </div>
         <div class="col-xs-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+          <div class="thumbnail-pig">
+            <img class="pig-pics" src="images/Hog-Horror.png" alt="Evil Hog">
             <div class="caption">
               <span id="choose-player"><h3>Hog Horror</h3></span>
             </div>
           </div>
         </div>
         <div class="col-xs-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+          <div class="thumbnail-pig">
+            <img class="pig-pics" src="images/Hog-Death.png" alt="Evil Hog">
             <div class="caption">
               <span id="choose-player"><h3>Hog Death</h3></span>
             </div>
           </div>
         </div>
         <div class="col-xs-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+          <div class="thumbnail-pig">
+            <img class="pig-pics" src="images/Hog-Demon.png" alt="Evil Hog">
             <div class="caption">
               <span id="choose-player"><h3>Hog Demon</h3></span>
             </div>
           </div>
         </div>
       </div>
-
-      <div id="pregame" class="row">
+      <br><br>
         <div class="text-center col-md-6 col-md-offset-3">
 
           <form id="new-players">
             <div class="form-group text-center">
               <label for="player1">Player 1</label>
             <select id="player1">
-              <option value="Evil Ham">Evil Ham</option>
-              <option value="Hog Horror">Hog Horror</option>
-              <option value="Hog Death">Hog Death</option>
-              <option value="Hog Demon">Hog Demon</option>
+              <option value="Evil-Ham">Evil Ham</option>
+              <option value="Hog-Horror">Hog Horror</option>
+              <option value="Hog-Death">Hog Death</option>
+              <option value="Hog-Demon">Hog Demon</option>
             </select>
             </div>
             <div class="form-group text-center">
               <label for="player2">Player 2</label>
               <select id="player2">
-              <option value="Evil Ham">Evil Ham</option>
-              <option value="Hog Horror">Hog Horror</option>
-              <option value="Hog Death">Hog Death</option>
-              <option value="Hog Demon">Hog Demon</option>
+              <option value="Evil-Ham">Evil Ham</option>
+              <option value="Hog-Horror">Hog Horror</option>
+              <option value="Hog-Death">Hog Death</option>
+              <option value="Hog-Demon">Hog Demon</option>
             </select>
             </div>
 
@@ -112,8 +112,12 @@
       <div id="game">
         <div class="row">
           <div id="player1-info" class="text-center col-md-4">
-            <div>Name: <span id="player1-name"></span></div>
-            <div>Score: <span id='score0'>0</span></div>
+
+            <div><span id="player1-name"></span></div>
+            <div class="score">Score <span id='score0'>0</span></div>
+
+            <div id="player1-image">
+            </div>
           </div>
 
           <div id="options" class="text-center col-md-4">
@@ -121,21 +125,20 @@
             <div id="roll">
 
               <div id="static-die">
-                Click to roll die:<br>
-                <img class="static-dice" src="css/dice.png">
+                Click to Roll<br>
+                <div class="static-die"></div>
               </div>
 
               <div id="rolling-die">
-                Rolling:<br>
                 <img src="css/animated-die.gif" />
               </div>
             </div>
             <br>
-            <div id="hold" class="btn btn-warning">Hold</div>
+            <div id="hold" class="btn btn-danger">Hold</div>
             <br>
             <div class="turn-status">
-              <div>The new roll is: <span id="roll-value"></span></div>
-              <div>Current score for this turn: <span id="score-value"></span></div>
+              <div>This Roll<span id="roll-value"></span></div>
+              <div>Turn Score <span id="score-value"></span></div>
             </div>
               <br>
               <div id="rolled-1">You rolled a 1. Your turn is over.<div id="change-player" class="btn-success">Change player</div></div>
@@ -145,8 +148,12 @@
           </div>
 
           <div id="player2-info" class="text-center col-md-4">
-            <div>Name: <span id="player2-name"></span></div>
-            <div>Score: <span id='score1'>0</span></div>
+            <div><span id="player2-name"></span></div>
+            <div class="score">Score <span id='score1'>0</span></div>
+
+            <div id="player2-image">
+            </div>
+
           </div>
         </div>
       </div>

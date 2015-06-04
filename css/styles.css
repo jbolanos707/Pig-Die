@@ -6,6 +6,14 @@
   display:none;
 }
 
+#player1-info {
+
+}
+
+.pig-pics {
+  height: 200px;
+}
+
 .static-dice{
   width:150px;
 }
@@ -39,7 +47,9 @@ body {
   color: red; }
 
 .content {
-  font: 100 8em/1  Eater, Impact;  }
+  font: 100 8em/1  Eater, Impact;
+  margin:20px;
+  }
 
 svg {
   margin: 0 auto;
@@ -54,5 +64,34 @@ svg {
   letter-spacing:4px;
   color:darkred;
   margin-bottom:60px;
-  
+
+}
+
+#game{
+  font-family:helvetica;
+}
+
+.die-pic{
+  width:120px;
+  border-radius:20px;
+}
+
+.score{
+  font-size:15px;
+}
+
+#player1-name{
+  font-size:30px;
+}
+
+#player2-name{
+  font-size:30px;
+}
+
+.profile-pics{
+  width:250px;
+}
+
+.thumbnail-pig{
+  text-align:center;
 }

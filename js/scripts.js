@@ -39,6 +39,15 @@ var updateGame = function(game) {
   $(".turn-status").hide();
 }
 
+var playerPic = function(playerName) {
+  return ("<img class='profile-pics' src='images/" + playerName + ".png'>");
+}
+
+var getDicePicture = function(number){
+  number = number.toString()
+  return '<img class="die-pic" src="images/' + number + '.jpg" />'
+}
+
 
 $(function() {
 
@@ -49,6 +58,14 @@ $(function() {
 
     var inputPlayer1 = $("#player1").val(),
         inputPlayer2 = $("#player2").val();
+
+    var player1src = playerPic(inputPlayer1);
+    $("#player1-image").html(player1src);
+
+    var player2src = playerPic(inputPlayer2);
+    $("#player2-image").html(player2src);
+
+
     newGame = new Game(inputPlayer1, inputPlayer2);
     $("#pregame").hide();
     $("#game #player1-info #player1-name").text(newGame.players[0].name);
@@ -73,6 +90,11 @@ $(function() {
         $("#rolling-die").hide();
         $("#static-die").show();
         var newRoll = newDie.roll();
+        var dieSrc = getDicePicture(newRoll);
+        $("#static-die").html(dieSrc);
+
+
+
         if (newRoll != 1) {
           newGame.addToTurnScore(newRoll);
           $(".turn-status").show();
