@@ -91,7 +91,7 @@ $(function() {
         $("#static-die").show();
         var newRoll = newDie.roll();
         var dieSrc = getDicePicture(newRoll);
-        $("#static-die").html(dieSrc);
+        $("#die-roll").html(dieSrc);
 
 
 
@@ -113,7 +113,7 @@ $(function() {
             $("#hold").show();
           });
         }
-      }, 2000);
+      }, 1000);
     });
 
     $("#hold").click(function() {
