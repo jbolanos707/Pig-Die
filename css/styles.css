@@ -36,10 +36,10 @@
 /* Other stuff */
 html,
 body {
-  background-color:black;
   height: 100%; }
 
 body {
+  background-color:black;
   color: red; }
 
 .content {
@@ -54,7 +54,7 @@ svg {
 }
 
 .container{
-  background-color:black;
+  /*background-color:black;*/
   font-family: Eater;
   font-size:20px;
   letter-spacing:4px;
@@ -104,4 +104,16 @@ svg {
 
 .rolling-die-pic{
   height:120px;
+}
+
+.blood-pic{
+  width:100px;
+}
+
+.add-blood{
+  background-image:url("../images/blood-drip.gif");
+}
+
+.turn-status{
+  margin-top:10px;
 }

@@ -85,6 +85,7 @@ $(function() {
     $("#roll").click(function(){
 
       $("#static-die").hide();
+      $("#die-roll").hide();
       $("#rolling-die").show();
       setTimeout(function(){
         $("#rolling-die").hide();
@@ -92,6 +93,7 @@ $(function() {
         var newRoll = newDie.roll();
         var dieSrc = getDicePicture(newRoll);
         $("#die-roll").html(dieSrc);
+        $("#die-roll").fadeIn("fast");
 
 
 
@@ -119,8 +121,9 @@ $(function() {
     $("#hold").click(function() {
       newGame.currentPlayer().addToScore(newGame.turnScore);
       $("#score" + newGame.currentPlayerIndex).text(newGame.currentPlayer().score);
-      if (newGame.currentPlayer().score >= 100) {
+      if (newGame.currentPlayer().score >= 50) {
         $("#game-over").text(newGame.currentPlayer().name + " is the winner.");
+        $("body").addClass("add-blood");
         $("#new-game").show();
         $("#new-game").click(function(){
           $("#game").hide();
