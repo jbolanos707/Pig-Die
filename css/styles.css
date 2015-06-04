@@ -6,5 +6,53 @@
   display:none;
 }
 
-#options {
+.static-dice{
+  width:150px;
+}
+
+.thumbnail {
+  background: black;
+  border: 0 none;
+  box-shadow: none;
+}
+
+.caption {
+  text-align: center;
+}
+
+#choose-player {
+  color: red;
+}
+.text {
+  fill: url("#p-fire");
+  stroke: red;
+  stroke-width: 5;
+  stroke-opacity:.3;  }
+
+/* Other stuff */
+html,
+body {
+  background-color:black;
+  height: 100%; }
+
+body {
+  color: red; }
+
+.content {
+  font: 100 8em/1  Eater, Impact;  }
+
+svg {
+  margin: 0 auto;
+  display: block;
+  text-transform: uppercase;
+}
+
+.container{
+  background-color:black;
+  font-family: Eater;
+  font-size:20px;
+  letter-spacing:4px;
+  color:darkred;
+  margin-bottom:60px;
+  
 }

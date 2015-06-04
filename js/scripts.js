@@ -47,8 +47,8 @@ $(function() {
   $("form#new-players").submit(function(event) {
     event.preventDefault();
 
-    var inputPlayer1 = $("input#player1").val(),
-        inputPlayer2 = $("input#player2").val();
+    var inputPlayer1 = $("#player1").val(),
+        inputPlayer2 = $("#player2").val();
     newGame = new Game(inputPlayer1, inputPlayer2);
     $("#pregame").hide();
     $("#game #player1-info #player1-name").text(newGame.players[0].name);

@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Butcherman' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Eater' rel='stylesheet' type='text/css'>
 
     <script src='js/jquery-1.11.3.js'></script>
     <script src='js/scripts.js'></script>
@@ -12,19 +16,91 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center page-header">Pig Dice!</h1>
+      <div class="content">
+        <svg viewBox="0 0 900 300">
+
+          <!-- Pattern -->
+          <pattern
+               id="p-fire"
+               viewBox="30 100 186 200"
+               patternUnits="userSpaceOnUse"
+               width="216" height="200"
+               x="-70" y="35">
+
+            <!-- Fire -->
+            <image xlink:href="css/img/fire.gif" width="256" height="300"/>
+          </pattern>
+
+          <!-- Text -->
+          <text text-anchor="middle"
+                  x="50%"
+                  y="50%"
+                  dy=".35em"
+                  class="text"
+                  >
+              Pig Die
+            </text>
+
+        </svg>
+
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+            <div class="caption">
+              <span id="choose-player"><h3>Evil Ham</h3></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+            <div class="caption">
+              <span id="choose-player"><h3>Hog Horror</h3></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+            <div class="caption">
+              <span id="choose-player"><h3>Hog Death</h3></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <img src="images/Evil-Eyes_Hell-Hog_Bandpage.jpg" alt="Evil Hog">
+            <div class="caption">
+              <span id="choose-player"><h3>Hog Demon</h3></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div id="pregame" class="row">
         <div class="text-center col-md-6 col-md-offset-3">
-          <h2>Player Names</h2>
+
           <form id="new-players">
             <div class="form-group text-center">
               <label for="player1">Player 1</label>
-              <input type="text" class="form-control" id="player1">
+            <select id="player1">
+              <option value="Evil Ham">Evil Ham</option>
+              <option value="Hog Horror">Hog Horror</option>
+              <option value="Hog Death">Hog Death</option>
+              <option value="Hog Demon">Hog Demon</option>
+            </select>
             </div>
             <div class="form-group text-center">
               <label for="player2">Player 2</label>
-              <input type="text" class="form-control" id="player2">
+              <select id="player2">
+              <option value="Evil Ham">Evil Ham</option>
+              <option value="Hog Horror">Hog Horror</option>
+              <option value="Hog Death">Hog Death</option>
+              <option value="Hog Demon">Hog Demon</option>
+            </select>
             </div>
 
             <button type="submit" class="btn">Play game!</button>
@@ -46,12 +122,12 @@
 
               <div id="static-die">
                 Click to roll die:<br>
-                <img src="images/static-die.jpg">
+                <img class="static-dice" src="css/dice.png">
               </div>
 
               <div id="rolling-die">
                 Rolling:<br>
-                <img src="images/animated-die.gif">
+                <img src="css/animated-die.gif" />
               </div>
             </div>
             <br>
