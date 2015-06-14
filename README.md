@@ -24,8 +24,11 @@ The first player to score 100 or more points wins.
 ### Author(s)
 
 Jennifer Bolanos - Front-End
+
 Jessica Engel - Front-End
+
 Ben Cornelis - Back-End
+
 Andrew David Burt - Back-End
 
 ### Setup
